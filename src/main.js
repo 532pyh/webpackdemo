@@ -1,2 +1,3 @@
-import './css/index.css'
-console.log(1)
+import './css/main.css'
+import './index'
+console.log('main')
