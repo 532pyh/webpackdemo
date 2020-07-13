@@ -1,6 +1,7 @@
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module.exports = {
     mode: "production",
     entry: {
@@ -12,7 +13,8 @@ module.exports = {
     },
     plugins: [
         new CleanWebpackPlugin(['dist']),
-        new HtmlWebpackPlugin()
+        new HtmlWebpackPlugin(),
+        new MiniCssExtractPlugin(),
     ],
     optimization: {
         minimize: false,
@@ -20,15 +22,8 @@ module.exports = {
     module: {
         rules: [
             {
-                resourceQuery: /inline/,
-                use: [
-                    {
-                        loader:'style-loader',
-                    },
-                    {
-                        loader:'css-loader'
-                    }
-                ],
+                test: /\.css$/,
+                use:[MiniCssExtractPlugin.loader,'css-loader']
             },
         ],
     },

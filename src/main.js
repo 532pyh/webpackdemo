@@ -1,3 +1,2 @@
-import './css/index.css?inline'
-import './ass/main.css?inline'
+import './css/index.css'
 console.log(1)
