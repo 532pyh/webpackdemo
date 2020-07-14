@@ -20,15 +20,8 @@ module.exports = {
     module: {
         rules: [
             {
-                resourceQuery: /inline/,
-                use: [
-                    {
-                        loader:'style-loader',
-                    },
-                    {
-                        loader:'css-loader'
-                    }
-                ],
+                test: /\.less$/,
+                use: ['style-loader','less-loader']
             },
         ],
     },

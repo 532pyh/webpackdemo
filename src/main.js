@@ -1,3 +1,3 @@
-import './css/index.css?inline'
-import './ass/main.css?inline'
+import 'css-loader!./css/index.less';
+// import './ass/main.css'
 console.log(1)
