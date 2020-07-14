@@ -14,16 +14,26 @@ module.exports = {
     plugins: [
         new CleanWebpackPlugin(['dist']),
         new HtmlWebpackPlugin(),
-        new MiniCssExtractPlugin(),
+        new MiniCssExtractPlugin({
+            filename: 'css/[name].css',
+        }),
     ],
-    optimization: {
-        minimize: false,
-    },
     module: {
         rules: [
             {
                 test: /\.css$/,
-                use:[MiniCssExtractPlugin.loader,'css-loader']
+                use: [MiniCssExtractPlugin.loader, 'css-loader']
+            },
+            {
+                test: /\.png$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: 'img/[name].[hash:8].[ext]'
+                        }
+                    }
+                ]
             },
         ],
     },
